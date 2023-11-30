@@ -3,6 +3,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   data() {
     return {}
@@ -10,7 +11,17 @@ export default {
   methods: {},
   computed: {},
   filters: {},
-  watch: {}
+  watch: {},
+  created() {
+    axios
+      .post('/api/sys/login', {
+        mobile: '17764049967',
+        password: 123456
+      })
+      .catch((res) => {
+        console.log(res)
+      })
+  }
 }
 </script>
 
